@@ -1,32 +1,51 @@
 import streamlit as st
+import time
 
-#convertir el conversorGrados.py a streamlit
+PATH = "./pages/"
+st.title("Aplicación de Streamlit")
 
-st.markdown("# Conversión de temperaturas")
-dato = st.text_input("Introduce número:")
+# st.write("Instrucciones")
 
-# Crear botón para calcular
-accion = st.selectbox("Convertir a:", ["Celcius", "Farenheit"])
+# page = st.sidebar.selectbox("Choose a peich", ["Otro", "Home", "Page 1"])
 
-if st.button("Calcular"): # button onclick con texto "Calcular" haz ...
-    dato = int(dato)
+# fecha
+# pasos
+# intensidad
+# distancia
+# peso
 
-    if accion == "Celcius":
-        conversion = (dato - 32) * (5/9)
-    elif accion == "Farenheit":
-        conversion = dato * (9/5) + 32
-    else:
-        conversion = "opción no válida"
+pages = {
+    "Main menu": [
+        st.Page(PATH + "home.py", title="Home"),
+    ],
+    "Step counter": [
+        st.Page(PATH + "step_counter.py", title="Data entry"),
+    ],
+    # "Your account": [
+    #     st.Page(PATH + "create_account.py", title="Create your account"),
+    #     st.Page(PATH + "manage_account.py", title="Manage your account"),        
+    # ],
+    # "Your account": [
+    #     st.Page(PATH + "create_account.py", title="Create your account"),
+    #     st.Page(PATH + "manage_account.py", title="Manage your account"),        
+    # ],
+    "Your account": [
+        st.Page(PATH + "create_account.py", title="Create your account"),
+        st.Page(PATH + "manage_account.py", title="Manage your account"),        
+    ],
+    "Resources": [
+        st.Page(PATH + "about.py", title="About us"),
+        st.Page(PATH + "tryit.py", title="Try it out"),        
+    ]
+}
 
-    st.write(f"Resultado final es: {conversion}!")
+# if page == "Home":
+#     mostrar_home()
+# elif page == "Page 1":
+#     pass
+#     # mostrar_pagina1()
+# else:
+#     st.write("página no encontrada")
 
-on = st.toggle("Activar botones")
-
-if on:
-    # st.write("Feature activated!")
-
-    for i in range(3):
-        if st.button(str(i)):
-            st.info(f"Has pinchado {i}")
-            st.link_button(f"Go to gallery {i}", "https://streamlit.io/gallery")
-
+pg = st.navigation(pages)
+pg.run()

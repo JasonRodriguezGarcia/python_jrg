@@ -1,20 +1,34 @@
 import streamlit as st
+import time
 
-# ejemplos de distintos elementos
+PATH = "./pages/"
+st.title("Aplicación de Streamlit")
 
-st.title("Hola Clase")
+st.write("Instrucciones")
 
-st.write("Aqui estoy")
+# page = st.sidebar.selectbox("Choose a peich", ["Otro", "Home", "Page 1"])
 
-st.markdown("# Titulo 1")
-st.markdown("## Titulo 2")
+pages = {
+    "Home": [
+        st.Page(PATH + "home.py", title="Home"),
+    ],
+    "Your account": [
+        st.Page(PATH + "create_account.py", title="Create your account"),
+        st.Page(PATH + "manage_account.py", title="Manage your account"),        
+    ],
+    "Resources": [
+        st.Page(PATH + "about.py", title="About us"),
+        st.Page(PATH + "tryit.py", title="Try it out"),        
+    ]
+}
 
-st.markdown("```python print('hola')```")
-st.code("print('hola mundo ...')", language="python")
+# if page == "Home":
+#     mostrar_home()
+# elif page == "Page 1":
+#     pass
+#     # mostrar_pagina1()
+# else:
+#     st.write("página no encontrada")
 
-# Crear entrada de texto
-user_input = st.text_input("Ingresa tu nombre:")
-
-# Crear botón para mostrar saludo
-if st.button("¡Salúdame!"):
-    st.write(f"¡Hola, {user_input}!")
+pg = st.navigation(pages)
+pg.run()

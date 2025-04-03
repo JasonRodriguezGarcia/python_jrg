@@ -26,6 +26,7 @@ pip install -r requirements.txt
 
 app.py será el archivo principal
 
-ejecutarlo con streamlit run app.py
+ejecutarlo con
+streamlit run app.py
 si pide email, ni caso, pulsar enter, luego autorizar como administrador y se abrirá nuestra página web sencilla
 
