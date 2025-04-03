@@ -21,6 +21,8 @@ pip free > requirements.txt
 
 en casa instalaremos las librerias con 
 pip install requirements.txt
+si da problemas probar con 
+pip install -r requirements.txt
 
 app.py será el archivo principal
 
