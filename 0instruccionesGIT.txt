@@ -1,0 +1,36 @@
+Si traemos del cole en un pendrive el proyecto.
+Lo podemos copiar a un directorio en el ordenador de casa y luego con estas instrucciones subirlo por PRIMERA VEZ.
+creamos un directorio (en mi caso python_jrg) con el ordenador de casa 
+Dentro de ese directorio copiamos lo del pendrive.
+Abrimos ese directorio con Visual Studio Code (en adelante VSC)
+En la consola, los siguientes comandos (RECORDAR QUE ES LA PRIMERA VEZ)
+
+git init
+git remote add origin https://github.com/JasonRodriguezGarcia/python_jrg.git
+git branch -M main
+git add .
+git commit -m "primer commit"
+git push -u origin main
+
+Asegurarse que en GitHub esta todo.
+
+Al día siguiente EN LA CLASE tendremos 2 opciones:
+1- o bien borramos el proyecto inicial y tecleamos lo siguiente que lo que hace es bajarnos una copia de nuestro
+GitHub de la nube con los siguientes comandos:
+    Abrir un directorio (Documentos) en VSC
+    En la línea de comandos teclear
+    git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
+    git config --global user.name "Jason RG"
+    git config --global user.email "jasonrodriguezempleo@gmail.com"
+
+
+2- o bien conectar el proyecto de clase con la nube, cosa que todavía no he probado.
+    git init
+    git add .
+    git commit -m "primer commit ficheros"
+
+    luego para sincronizar con el github en el que previamente
+    hemos creado el repositorio DesarrolloWeb, ejecutamos:
+    git remote add origin https://github.com/JasonRodriguezGarcia/DesarrolloWeb.git
+    git branch -M main
+    git push -u origin main
