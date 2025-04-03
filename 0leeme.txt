@@ -1,3 +1,4 @@
+FICHERO MODIFICADO
 instalar python en python.org
 EN LA INSTALACACIÓN
     activar Add python.exe to PATH
