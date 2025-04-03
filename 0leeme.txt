@@ -1,0 +1,28 @@
+instalar python en python.org
+EN LA INSTALACACIÓN
+    activar Add python.exe to PATH
+
+instalar entorno virtual
+python -m venv venv
+
+activar entorno virtual (solo usar al principio del día)
+.\venv\Scripts\activate.bat 
+
+desactivar entorno virtual (solo usar al final del día)
+.\venv\Scripts\deactivate.bat
+
+instalar streamlit
+pip install streamlit
+
+generamos un requirements.txt (parecido al package de React), ya que no subimos a la nube las librerias
+instaladas con pip
+pip free > requirements.txt
+
+en casa instalaremos las librerias con 
+pip install requirements.txt
+
+app.py será el archivo principal
+
+ejecutarlo con streamlit run app.py
+si pide email, ni caso, pulsar enter, luego autorizar como administrador y se abrirá nuestra página web sencilla
+
