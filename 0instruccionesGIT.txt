@@ -34,3 +34,17 @@ GitHub de la nube con los siguientes comandos:
     git remote add origin https://github.com/JasonRodriguezGarcia/DesarrolloWeb.git
     git branch -M main
     git push -u origin main
+
+UNA VEZ HECHOS ESTOS PARA EL FUTURO tanto en casa como en el cole
+Ojo, hay que tener claro lo que hacemos
+Si trabajamos en el cole con nuevos cambios, PARA SUBIR A LA NUBE LOS CAMBIOS hechos
+add .
+git commit -m "un mensaje"
+git push
+
+Pero si cuando lleguemo a casa queremos recuperar esos cambios
+PARA ACTUALIZAR DESDE LA NUBE 
+git pull
+
+
+
