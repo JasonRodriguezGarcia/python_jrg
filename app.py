@@ -2,7 +2,7 @@ import streamlit as st
 import time
 
 PATH = "./pages/"
-st.title("Walking healthy")
+st.title("Health care")
 
 # st.write("Instrucciones")
 
@@ -15,15 +15,19 @@ st.title("Walking healthy")
 # peso
 # distancia (calculado)
 # calorías (calculado)
+# indice 
 
 pages = {
-    "Main menu": [
+    "Home": [
         st.Page(PATH + "home.py", title="Home"),
     ],
-    "Step counter": [
-        st.Page(PATH + "step_counter.py", title="Data entry"),
+    "Data entry": [
+        st.Page(PATH + "data_entry.py", title="Data entry"),
+    ],
+    "Statistics": [
         st.Page(PATH + "calories_consumed.py", title="Calories consumed"),
         st.Page(PATH + "distance_travelled.py", title="Distance travelled"),
+        st.Page(PATH + "blood_sugar.py", title="Blood sugar index"),
     ],
     # "Your account": [
     #     st.Page(PATH + "create_account.py", title="Create your account"),
@@ -35,6 +39,7 @@ pages = {
     # ],
     "Your account": [
         st.Page(PATH + "create_account.py", title="Create your account"),
+        st.Page(PATH + "login.py", title="Login"),        
         st.Page(PATH + "manage_account.py", title="Manage your account"),        
     ],
     "Resources": [
