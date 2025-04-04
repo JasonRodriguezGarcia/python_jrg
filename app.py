@@ -2,7 +2,7 @@ import streamlit as st
 import time
 
 PATH = "./pages/"
-st.title("Aplicación de Streamlit")
+st.title("Walking healthy")
 
 # st.write("Instrucciones")
 
@@ -11,8 +11,10 @@ st.title("Aplicación de Streamlit")
 # fecha
 # pasos
 # intensidad
-# distancia
+# tiempo
 # peso
+# distancia (calculado)
+# calorías (calculado)
 
 pages = {
     "Main menu": [
@@ -20,6 +22,8 @@ pages = {
     ],
     "Step counter": [
         st.Page(PATH + "step_counter.py", title="Data entry"),
+        st.Page(PATH + "calories_consumed.py", title="Calories consumed"),
+        st.Page(PATH + "distance_travelled.py", title="Distance travelled"),
     ],
     # "Your account": [
     #     st.Page(PATH + "create_account.py", title="Create your account"),
