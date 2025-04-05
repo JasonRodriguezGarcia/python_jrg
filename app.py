@@ -22,7 +22,8 @@ pages = {
         st.Page(PATH + "home.py", title="Home"),
     ],
     "Data entry": [
-        st.Page(PATH + "data_entry.py", title="Data entry"),
+        st.Page(PATH + "data_entry.py", title="Data entry Amatxo"),
+        st.Page(PATH + "data_entry_rosa.py", title="Data entry Rosa"),
     ],
     "Statistics": [
         st.Page(PATH + "calories_consumed.py", title="Calories consumed"),

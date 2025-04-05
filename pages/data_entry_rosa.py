@@ -14,57 +14,81 @@ import pandas as pd
 # }
 # df = pd.DataFrame(data)
 
-if 'data' not in st.session_state:
-    df = pd.DataFrame(columns=['Date', 'SugarIndex', 'Steps', 'Intensity', 'Time', 'Weight'])
+if 'dataRosa' not in st.session_state:
+    df = pd.DataFrame(columns=['Fecha', 'Resultado', 'Peso', 'Salsa', 'Enfriado', 'Caminado',
+                                'Comido', 'BebidaComida', 'Merendado', 'Cenado', 'BebidaCena'])
+
 else:
-    df = st.session_state['data']
+    df = st.session_state['dataRosa']
 # df = st.session_state['data']
 
 # print(df)
-st.subheader("Data entry Amatxo", divider=True)
+st.subheader("Datos Rosa", divider=True)
 
 with st.form("my_form", clear_on_submit=True):
     col1, col2, col3 = st.columns(3)
 
     with col1:
         dateLog = st.date_input(
-            "Date:",
+            "Fecha:",
             datetime.datetime.now(),
             # format="DD/MM/YYYY",
             min_value=datetime.date(2020, 1, 1),
             max_value=datetime.date(2050, 1, 1)
         )
-        sugarIndexLog = st.number_input("Blood sugar index:", min_value=80, max_value=300, value=100)
+        resultadoLog = st.selectbox("Resultado", ["Bien", "Mal"], index=0)
+        pesoLog = st.number_input("Peso Kgs:",
+            min_value=40.000,
+            max_value=200.000,
+            value=130.000,
+            step=0.1,
+            format="%0.1f"
+        )
 
     with col2:
-        stepsLog = st.number_input("Steps nr.:", min_value=1, max_value=1000000, value=1)
-        intensityLog = st.selectbox("Select exercise intensity", ["Slow", "Moderate", "Fast"], index=1)
-
+        salsaLog = st.selectbox("Salsa", ["Ninguna", "Alioli", "Mahonesa", "Picante"], index=0)
+        enfriadoLog = st.selectbox("Enfriado", ["Si", "No"], index=1)
+        nerviosaLog = st.selectbox("Nerviosa", ["Si", "No"], index=1)
+        caminadoLog = st.selectbox("Caminado", ["Si", "No"], index=1)
     with col3:
-        timeLog = st.number_input("Time (hours):", min_value=0.01, max_value = 48.00, value=0.01, step=0.01)
-        weightLog = st.number_input("Weight (kgs):", min_value=10.000, max_value=500.000, value=10.000, step=0.001)
+        comidoLog = st.selectbox("Comida", ["Arroz", "Carne", "Legumbre", "Otros", "Pasta", "Pescado", "Verdura"], index=1)
+        bebidaComidaLog = st.selectbox("Bebida comida", ["Vino", "Cerveza", "Kalimotxo", "Agua"], index=1)
+        merendadoLog = st.text_input("Merendado")
+        cenadoLog = st.selectbox("Cena", ["Arroz", "Carne", "Legumbre", "Otros", "Pasta", "Pescado", "Verdura"], index=1)
+        bebidaCenaLog = st.selectbox("Bebida cena", ["Vino", "Cerveza", "Kalimotxo", "Agua"], index=1)
+
+
+
+
+
+
 
 
     if st.form_submit_button("Save"):
         with st.spinner("Saving data ...", show_time=True):
             data_new = {
-                'Date': dateLog,
-                'SugarIndex': sugarIndexLog,
-                'Steps': stepsLog,
-                'Intensity': intensityLog,
-                'Time': timeLog,
-                'Weight': weightLog
+                'Fecha': dateLog,
+                'Resultado': resultadoLog,
+                'Peso': pesoLog,
+                'Salsa': salsaLog,
+                'Enfriado': enfriadoLog,
+                'Caminado': caminadoLog,
+                'Comido': comidoLog,
+                'BebidaComida': bebidaComidaLog,
+                'Merendado': merendadoLog,
+                'Cenado': cenadoLog,
+                'BebidaCena': bebidaCenaLog
             }
             df.loc[len(df)] = data_new
             print("imprimo df: ", df)
-            st.session_state['data'] = df
+            st.session_state['dataRosa'] = df
             # st.session_state['data'] = pd.concat([st.session_state['data'], pd.DataFrame([data_new])], ignore_index=True)
             st.success("Dato guardado")
             time.sleep(2)
         st.write("Data saved")
 
-if 'data' in st.session_state:
-    st.session_state['data']
+if 'dataRosa' in st.session_state:
+    st.session_state['dataRosa']
 # df # printing
 
 
